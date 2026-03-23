@@ -1,0 +1,5 @@
+Chat Session Log
+turn_1: {'user': 'hi', 'bot': 'Hello! How can I assist you today?'}
+turn_2: {'user': 'what is nlp', 'bot': 'NLP (Natural Language Processing) allows machines to understand human language.'}
+
+Total turns: 3

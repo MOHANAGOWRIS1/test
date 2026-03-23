@@ -1,0 +1,6 @@
+Chat Session Log
+turn_1: {'user': 'hi', 'bot': 'Hello! How can I assist you today?'}
+turn_2: {'user': 'what is ml', 'bot': 'ML stands for Machine Learning, a subset of AI.'}
+
+Total turns: 3
+

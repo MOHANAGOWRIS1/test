@@ -206,3 +206,4 @@ with open(file_path, "r", encoding="utf-8") as f:
     print(f.read())
 
 print("✅ Chat task completed successfully.")
+print("CI/CD test")

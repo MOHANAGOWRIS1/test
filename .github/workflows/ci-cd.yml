@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest   # ✅ REQUIRED
+    runs-on: ubuntu-latest
 
     steps:
 
@@ -27,7 +27,7 @@ jobs:
         cd pythonchatbot
         pip install -r requirements.txt
 
-    # 4. Run app
+    # 4. Run app (optional test)
     - name: Run chatbot
       run: |
         cd pythonchatbot
@@ -35,19 +35,22 @@ jobs:
         sleep 5
 
     # 5. Build Docker image
-    - name: Build Docker
+    - name: Build Docker image
       run: |
         cd pythonchatbot
         docker build -t python-chatbot .
 
     # 6. Login to Docker Hub
     - name: Docker Login
-      run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+      run: |
+        echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
-    # 7. Tag image
+    # 7. Tag Docker image
     - name: Tag Docker image
-      run: docker tag python-chatbot ${{ secrets.DOCKER_USERNAME }}/python-chatbot
+      run: |
+        docker tag python-chatbot ${{ secrets.DOCKER_USERNAME }}/python-chatbot
 
-    # 8. Push image
+    # 8. Push Docker image
     - name: Push Docker image
-  run: docker push ${{ secrets.DOCKER_USERNAME }}/python-chatbot
+      run: |
+        docker push ${{ secrets.DOCKER_USERNAME }}/python-chatbot
